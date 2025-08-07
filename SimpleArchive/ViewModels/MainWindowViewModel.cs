@@ -1,3 +1,4 @@
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Windows.Storage.Pickers;
 using SimpleArchive.Models;
@@ -7,7 +8,8 @@ using WinUIEx;
 namespace SimpleArchive.ViewModels;
 
 internal sealed partial class MainWindowViewModel : ViewModel {
-    private string? openedArchive;
+    [ObservableProperty]
+    private partial string? OpenedArchive { get; set; }
 
     [RelayCommand]
     private async Task FileSelect() {
@@ -18,13 +20,13 @@ internal sealed partial class MainWindowViewModel : ViewModel {
         var result = await fop.PickSingleFileAsync();
 
         if (result is not null && File.Exists(result.Path)) {
-            openedArchive = result.Path;
+            OpenedArchive = result.Path;
         }
     }
 
     [RelayCommand]
     private async Task DecompressFile() {
-        if (openedArchive is null || !File.Exists(openedArchive)) {
+        if (OpenedArchive is null || !File.Exists(OpenedArchive)) {
             return;
         }
 
@@ -36,7 +38,7 @@ internal sealed partial class MainWindowViewModel : ViewModel {
             var pw = ProgressWindow.Create(pwvm);
 
             pw.Show();
-            await Task.Run(() => Decompressor.Decompress(openedArchive, pw, pwvm, result.Path));
+            await Task.Run(() => Decompressor.Decompress(OpenedArchive, pw, pwvm, result.Path));
             pw.Close();
         }
     }

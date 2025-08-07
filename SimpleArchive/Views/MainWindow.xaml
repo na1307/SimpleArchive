@@ -12,9 +12,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="9*" />
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Command="{x:Bind vm.FileSelectCommand}">파일 선택</Button>
-        <Button Grid.Row="1" Command="{x:Bind vm.DecompressFileCommand}">압축 풀기</Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="6*" />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Command="{x:Bind vm.FileSelectCommand}">파일 선택</Button>
+        <Button Grid.Row="0" Grid.Column="1" Command="{x:Bind vm.DecompressFileCommand}">압축 풀기</Button>
     </Grid>
 </Window>
