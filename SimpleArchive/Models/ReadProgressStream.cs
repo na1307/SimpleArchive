@@ -1,6 +1,6 @@
 namespace SimpleArchive.Models;
 
-internal sealed partial class ReadProgressStream(Stream baseStream, Action<long> progressCallback) : Stream {
+internal sealed partial class ReadProgressStream(Stream baseStream, Action<long> progressCallback, bool leaveOpen = false) : Stream {
     private long totalBytesRead;
 
     public override bool CanRead => baseStream.CanRead;
@@ -34,10 +34,12 @@ internal sealed partial class ReadProgressStream(Stream baseStream, Action<long>
     public override void Write(byte[] buffer, int offset, int count) => baseStream.Write(buffer, offset, count);
 
     protected override void Dispose(bool disposing) {
-        if (disposing) {
-            baseStream.Dispose();
-        }
+        if (!leaveOpen) {
+            if (disposing) {
+                baseStream.Dispose();
+            }
 
-        base.Dispose(disposing);
+            base.Dispose(disposing);
+        }
     }
 }

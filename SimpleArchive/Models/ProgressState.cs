@@ -1,15 +1,89 @@
 namespace SimpleArchive.Models;
 
 internal sealed class ProgressState {
-    public long OverallMax { get; set; }
+    private readonly Lock locker = new();
 
-    public long OverallValue { get; set; }
+    public long OverallMax {
+        get {
+            lock (locker) {
+                return field;
+            }
+        }
 
-    public string? CurrentPath { get; set; }
+        set {
+            lock (locker) {
+                field = value;
+            }
+        }
+    }
 
-    public long CurrentMax { get; set; }
+    public long OverallValue {
+        get {
+            lock (locker) {
+                return field;
+            }
+        }
 
-    public long CurrentValue { get; set; }
+        set {
+            lock (locker) {
+                field = value;
+            }
+        }
+    }
 
-    public bool IsCompleted { get; set; }
+    public string? CurrentPath {
+        get {
+            lock (locker) {
+                return field;
+            }
+        }
+
+        set {
+            lock (locker) {
+                field = value;
+            }
+        }
+    }
+
+    public long CurrentMax {
+        get {
+            lock (locker) {
+                return field;
+            }
+        }
+
+        set {
+            lock (locker) {
+                field = value;
+            }
+        }
+    }
+
+    public long CurrentValue {
+        get {
+            lock (locker) {
+                return field;
+            }
+        }
+
+        set {
+            lock (locker) {
+                field = value;
+            }
+        }
+    }
+
+    public bool IsCompleted {
+        get {
+            lock (locker) {
+                return field;
+            }
+        }
+
+        set {
+            lock (locker) {
+                field = value;
+            }
+        }
+    }
 }
