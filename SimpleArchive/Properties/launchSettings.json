@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SimpleArchive (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "SimpleArchive (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

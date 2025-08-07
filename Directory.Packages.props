@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+    <CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4654" />
+    <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.8.250702007-experimental4" />
+    <PackageVersion Include="SharpCompress" Version="0.40.0" />
+    <PackageVersion Include="WinUIEx" Version="2.6.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <GlobalPackageReference Include="Bluehill.Imports" Version="1.0.18" />
+  </ItemGroup>
+</Project>
