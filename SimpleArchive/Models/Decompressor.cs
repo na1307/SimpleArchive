@@ -61,8 +61,9 @@ internal static class Decompressor {
 
                 state.CurrentValue = entry.Size;
             }
+
+            state.OverallValue = fs.Length;
         } finally {
-            state.OverallValue = state.OverallMax;
             state.IsCompleted = true;
         }
     }
