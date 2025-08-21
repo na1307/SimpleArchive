@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <AutoPublish Condition="'$(AutoPublish)' == '' and '$(PublishProfile)' != ''">true</AutoPublish>
+
+    <AutoPublishDependsOn Condition="'$(AutoPublish)' == 'true'">
+      $(AutoPublishDependsOn);
+      Publish
+    </AutoPublishDependsOn>
+  </PropertyGroup>
+
+  <Target Name="AutoPublish" AfterTargets="Build" DependsOnTargets="$(AutoPublishDependsOn)">
+  </Target>
+</Project>

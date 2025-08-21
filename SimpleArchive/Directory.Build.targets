@@ -1,0 +1,6 @@
+<Project>
+  <Target Name="BeforeGenerateCustom" BeforeTargets="_GenerateAppxPackageFile">
+    <Delete Files="..\SimpleArchive.ShellExtension\bin\$(Platform)\$(Configuration)\win-$(Platform)\SimpleArchive.ShellExtension.dll" />
+    <Copy SourceFiles="..\SimpleArchive.ShellExtension\bin\$(Platform)\$(Configuration)\win-$(Platform)\publish\SimpleArchive.ShellExtension.dll" DestinationFiles="..\SimpleArchive.ShellExtension\bin\$(Platform)\$(Configuration)\win-$(Platform)\SimpleArchive.ShellExtension.dll" />
+  </Target>
+</Project>

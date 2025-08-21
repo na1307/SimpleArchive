@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="SimpleArchive.Views.ProgressWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SimpleArchive.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="ProgressWindow">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Bind vm.CurrentPercentage, Mode=OneWay}" />
+        <ProgressBar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Width="600" Value="{x:Bind vm.CurrentValue, Mode=OneWay}" Maximum="{x:Bind vm.MaxCurrent, Mode=OneWay}" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Bind vm.OverallPercentage, Mode=OneWay}" />
+        <ProgressBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Width="600" Value="{x:Bind vm.OverallValue, Mode=OneWay}" Maximum="{x:Bind vm.MaxOverall, Mode=OneWay}" />
+        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Text="{x:Bind vm.CurrentPath, Mode=OneWay}" />
+        <Button Grid.Row="5" Grid.Column="2" Content="{x:Bind vm.Canceling, Mode=OneWay}" IsEnabled="{x:Bind vm.CancelEnabled, Mode=OneWay}" Command="{x:Bind vm.CancelButtonCommand}" CommandParameter="{x:Bind}" />
+    </Grid>
+</Window>
