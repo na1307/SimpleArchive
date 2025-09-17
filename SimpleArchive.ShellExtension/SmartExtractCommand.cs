@@ -4,7 +4,7 @@ namespace SimpleArchive.ShellExtension;
 
 [GeneratedComClass]
 [Guid("3BAA77C5-0171-4AF7-9B0E-08287E2C5AF7")]
-public unsafe partial class SmartExtractCommand : IExplorerCommand {
+public sealed unsafe partial class SmartExtractCommand : IExplorerCommand {
     public string GetTitle(IShellItemArray? itemArray) => "Smart Extract";
 
     public string GetIcon(IShellItemArray? itemArray) => throw new NotImplementedException();
@@ -88,7 +88,7 @@ public unsafe partial class SmartExtractCommand : IExplorerCommand {
             return;
         }
 
-        var p = Process.Start(new ProcessStartInfo(exePath, ["extractsmart", archivePath, Path.GetDirectoryName(exePath)!]));
+        var p = Process.Start(new ProcessStartInfo(exePath, ["extractsmart", archivePath, Path.GetDirectoryName(archivePath)!]));
 
         if (p is null) {
             _ = MessageBoxW(null, "SimpleArchive launch failed.", null, 16);
