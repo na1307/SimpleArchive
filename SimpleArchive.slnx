@@ -1,0 +1,16 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="SimpleArchive.Shared/SimpleArchive.Shared.csproj" />
+  <Project Path="SimpleArchive.ShellExtension/SimpleArchive.ShellExtension.csproj">
+    <Platform Solution="*|ARM64" Project="ARM64" />
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="SimpleArchive/SimpleArchive.csproj">
+    <Platform Solution="*|ARM64" Project="ARM64" />
+    <Platform Solution="*|x64" Project="x64" />
+    <Deploy />
+  </Project>
+</Solution>

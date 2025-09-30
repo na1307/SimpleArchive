@@ -29,15 +29,15 @@
       },
       "Microsoft.Windows.SDK.BuildTools": {
         "type": "Direct",
-        "requested": "[10.0.26100.4948, )",
-        "resolved": "10.0.26100.4948",
-        "contentHash": "o0T4CVaumDjPNNijKiM7p25vHKdyKqYvaVVLgQO02KTOoUDlgMYJVUQAXn1IG0G9/ZsdZ+bdgWxgQsrO/b37qw=="
+        "requested": "[10.0.26100.6584, )",
+        "resolved": "10.0.26100.6584",
+        "contentHash": "EUt+urbMmyBgDX7CA/8eUZRAzi5CKUHyLvQnKkmCUBgpsgaquGb6/XAORzKy6zy/zbu5RoeTxQP9TSntpP3ETw=="
       },
       "Microsoft.WindowsAppSDK.Runtime": {
         "type": "Direct",
-        "requested": "[1.8.250907003, )",
-        "resolved": "1.8.250907003",
-        "contentHash": "URsthdat9pv1wnRNAy0WA5yejsc47QsSjjJ+L6INEgIFilrp4/LYndpHkoWh3KwBSjwkskvZlSprbOl09YVg/g==",
+        "requested": "[1.8.250916003, )",
+        "resolved": "1.8.250916003",
+        "contentHash": "y58FxcrVDOJyhh+4kl6cTCaaAh2cLEDU/LIDvYX4Se6aiA1NkuvJ4XicaOPXdkIWl8pi15hj5PWqoMlYUQr1Cg==",
         "dependencies": {
           "Microsoft.WindowsAppSDK.Base": "1.8.250831001"
         }
